@@ -9,7 +9,23 @@ services:
     volumes:
         - mongodb-data:/data/mongodb
         - mongodb-config:/data/mongoconfig
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: secureuallREL
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
 volumes: 
   mongodb-data:
   mongodb-config:
+
+
 
