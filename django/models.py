@@ -108,3 +108,12 @@ class Vulnerability_Comment(models.Model):
 
     def _str_(self):
         return self.comment
+
+class Log(models.Model):
+    cod=models.BigAutoField(primary_key=True)
+    date=models.DateField() # auto_now=True
+    machine=models.ForeignKey(Machine, on_delete=models.CASCADE)
+    worker=models.ForeignKey(Worker, on_delete=models.CASCADE)
+    path=models.CharField(max_length=256) #caminho para o ficheiro de logs
+    
+
